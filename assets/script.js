@@ -60,13 +60,13 @@ function showCardData(cardObj) {
 
   //card type
   const cardType = document.createElement("h3");
-  cardType.innerText = cardObj.type;
+  cardType.innerText = `Type: ${cardObj.type}`;
   cardDiv.appendChild(cardType);
   //console.log(cardType);
 
   //card meaning
   const cardMeaningUp = document.createElement("h3");
-  cardMeaningUp.innerText = cardObj.meaning_up;
+  cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
   cardDiv.appendChild(cardMeaningUp);
   //console.log(cardMeaningUp);
 
