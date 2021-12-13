@@ -24,6 +24,7 @@ async function fetchRandomCard() {
     //clear previously displayed card
     cardDiv.innerHTML = "";
     showCardData(cardData.cards[0]);
+    displayImages(cardData.cards[0])
   } catch (error) {
     console.log("ERROR!!!!")
   }
@@ -32,32 +33,29 @@ async function fetchRandomCard() {
 //search for a card
 async function fetchCardData(cardName) {
   try {
+    // https://cors-anywhere.herokuapp.com/
     const cardSearchAPI = `https://rws-cards-api.herokuapp.com/api/v1/cards/search?q=${cardName}`
     const res = await axios.get(cardSearchAPI);
     const cardData = res.data;
     console.log(cardData);
     showCardData(cardData.cards[0]);
+    displayImages(cardData.cards[0])
   } catch (error) {
-    console.log("ERROR!!!")
+    console.log("FETCH CARD DATA ERROR!!!")
   }
 }
 
-// async function fetchCardImages(cardObj) {
-//   const cardShort =
-//   //how can I access name_short???
-//   const cardImageURL = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
-//   const res = await axios.get(cardImageURL);
-//   const images = res.data.message;
+function displayImages(cardObj) {
+  // const img = document.createElement("img");
+  // img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardObj.card_short}.jpg`
+  // imageDiv.appendChild(img);
 
-//   displayImages(images);
-// }
+  imageDiv.innerHTML = "";
+  const img = document.createElement("img");
+  const cardShort = cardObj.name_short;
+  img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
+  imageDiv.appendChild(img);
 
-function displayImages(images) {
-  images.forEach((image) => {
-    let img = document.createElement("img");
-    img.src = image;
-    imageDiv.appendChild(img);
-  });
 }
 
 function handleSubmit(event) {
@@ -94,14 +92,6 @@ function showCardData(cardObj) {
   cardDesc.innerText = cardObj.desc;
   cardDiv.appendChild(cardDesc);
   //console.log(cardDesc);
-
-  //card images
-  const cardShort = cardObj.name_short;
-  const cardImage = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`;
-  // const res = await axios.get(cardImageURL);
-  // const images = res.data.message;
-  displayImages(cardImage)
-
 }
 
 
