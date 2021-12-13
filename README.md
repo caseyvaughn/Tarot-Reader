@@ -40,6 +40,8 @@ Image source site: https://www.sacred-texts.com/tarot/pkt/index.htm
 Link to homepage, 1-card spread, and 3-card spread displays: 
 https://www.figma.com/file/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-id=5%3A119
 
+![sample site homepage] https://www.figma.com/proto/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-id=5%3A119&scaling=min-zoom&page-id=5%3A118]
+
 ### MVP/PostMVP
 
 #### MVP 
