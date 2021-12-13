@@ -1,8 +1,12 @@
 
-//all cards API = "https://rws-cards-api.herokuapp.com/api/v1/cards"
+//API RESOURCES
+// all cards API = "https://rws-cards-api.herokuapp.com/api/v1/cards"
 // random card API = `https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=${number}`
-//card search API = `https://rws-cards-api.herokuapp.com/api/v1/cards/search?q=${cardName}`
+// card search API = `https://rws-cards-api.herokuapp.com/api/v1/cards/search?q=${cardName}`
+
+//querySelectors
 const cardDiv = document.querySelector("#card-data");
+const drawOneCard = document.querySelector("#random-card")
 
 
 //generate 1 random card
@@ -17,7 +21,7 @@ async function fetchRandomCard() {
     console.log("ERROR!!!!")
   }
 }
-fetchRandomCard();
+
 
 function showCardData(cardObj) {
   //console.log(data);
@@ -26,3 +30,6 @@ function showCardData(cardObj) {
   cardDiv.appendChild(cardName);
   console.log(cardName);
 }
+
+//add event listener for random card buttom
+drawOneCard.addEventListener("click", fetchRandomCard);
