@@ -11,7 +11,6 @@ header{
   text-align: center;
   position: fixed;
   top: 0;
-  /* top: 0; */
   width: 100%;
 }
 
@@ -25,35 +24,52 @@ header > h1 {
 .card-functions{
   justify-content: space-around;
   display: inline-flex;
+  
+}
+
+button{
+  padding: 7px;
+  border: 3px solid #BF6F6F;
+  box-sizing: border-box;
+  background: #12034F;
+  color: white;
+  font-size: 15px;
+}
+#card-search{
+  background: #12034F;
+  padding: 10px;
+  color: white;
+  font-size: 15px;
+  font-style: italic;
+  border-bottom: 3px solid #BF6F6F;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
+::placeholder{
+  color: #F1D644;
+  opacity:1; 
+  text-align: right;
 }
 
 .flex-container{
   display: flex;
   flex-direction: row-reverse;
   margin-top: 300px;
-  
 }
 
 .flex-child{
- padding: 50px;
+ /* padding: 50px; */
 }
 
 #card-data{
-  /* position: relative;
-  width: 497px;
-  height: 318px;
-  left: 601px;
-  top: 204px; */
-
   font-weight: 600;
   font-size: 24px;
   line-height: 33px;
+  padding: 40px
 }
 
 #card-image{
-  /* position: relative;
-  /* width: 257px;
-  height: 445px;
-  left: 272px;
-  top: 204px; */ 
+  padding: 50px;
+ 
 }
