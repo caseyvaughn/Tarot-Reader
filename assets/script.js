@@ -24,11 +24,26 @@ async function fetchRandomCard() {
 
 
 function showCardData(cardObj) {
-  //console.log(data);
-  const cardName = document.createElement("h3");
+  //card name
+  const cardName = document.createElement("h2");
   cardName.innerText = cardObj.name;
   cardDiv.appendChild(cardName);
   console.log(cardName);
+  //card type
+  const cardType = document.createElement("h3");
+  cardType.innerText = cardObj.type;
+  cardDiv.appendChild(cardType);
+  console.log(cardType);
+  //card meaning
+  const cardMeaningUp = document.createElement("h3");
+  cardMeaningUp.innerText = cardObj.meaning_up;
+  cardDiv.appendChild(cardMeaningUp);
+  console.log(cardMeaningUp);
+  //card description
+  const cardDesc = document.createElement("h4");
+  cardDesc.innerText = cardObj.desc;
+  cardDiv.appendChild(cardDesc);
+  console.log(cardDesc);
 }
 
 //add event listener for random card buttom
