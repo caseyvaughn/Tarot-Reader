@@ -8,10 +8,9 @@ body {
 header{
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
-  align-content: center;
   text-align: center;
   position: fixed;
+  top: 0;
   /* top: 0; */
   width: 100%;
 }
@@ -24,27 +23,37 @@ header > h1 {
 }
 
 .card-functions{
-  color: orange;
-  flex-direction: row;
   justify-content: space-around;
-  align-content: space-around;
   display: inline-flex;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 25px;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 300px;
+  
+}
+
+.flex-child{
+ padding: 50px;
 }
 
 #card-data{
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  /* position: relative;
   width: 497px;
   height: 318px;
   left: 601px;
-  top: 204px;
+  top: 204px; */
 
   font-weight: 600;
   font-size: 24px;
   line-height: 33px;
+}
 
+#card-image{
+  /* position: relative;
+  /* width: 257px;
+  height: 445px;
+  left: 272px;
+  top: 204px; */ 
 }
