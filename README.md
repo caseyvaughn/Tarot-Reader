@@ -1,4 +1,4 @@
-# -Placeholder-Project-1
+# Tarot Reader
 
 # Project Overview
 
@@ -8,17 +8,17 @@ Tarot Reader
 
 ## Project Description
 
-To create an app that generates a tarot card reading for the user. The user will select a random card from the tarot deck and will receive the card's title, image, and description. The user can also search for a specific card if they are curious about a card's meaning. 
+Create an app that generates a tarot card reading for the user. The user will select a random card from the tarot deck and will receive the card's title, meaning, and description. The user can also search for a specific card. 
 
 
 ## API and Data Sample
 
 Tarot Card API: https://app.swaggerhub.com/apis/ekswagger/rws-tarot_card_api/1.0.0#/Get%20cards
 
-Note: This API does not have images for the cards. The API is using data from this site: https://www.sacred-texts.com/tarot/pkt/index.htm
+Note: This API does not have images for the cards. As a post-MVP item, I plan to interpolate the card's name into a URL to display the selected card's image. 
 
-I will interpolate the card's name into a URL to display selected card's image. 
-Example:
+Image source site: https://www.sacred-texts.com/tarot/pkt/index.htm
+
 `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`
 
 
@@ -37,7 +37,8 @@ Example:
 ```
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+Link to homepage, 1-card spread, and 3-card spread displays: 
+https://www.figma.com/file/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-id=5%3A119
 
 ### MVP/PostMVP
 
@@ -52,9 +53,9 @@ Upload images of your wireframes to an image hosting site or add them to an asse
 
 #### PostMVP  
 - Display card image (images not included in API)
-- Allow user to store favorite or past cards
 - Include an option for a 3 card spread
 - Include readings for the card's reverse
+- Display random selection of card images on homepage
 
 
 ## Project Schedule
@@ -74,21 +75,24 @@ Upload images of your wireframes to an image hosting site or add them to an asse
 ## Priority Matrix
 https://whimsical.com/project-1-priority-matrix-XzQbG9vzYfuypin4mFwvk1
 
-<iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/XzQbG9vzYfuypin4mFwvk1"></iframe>
 
 ## Timeframes
-
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Set up basic HTML, CSS, & JS | H | 4hrs|  hrs |  hrs |
+| Setup API | H | 3hrs| hrs | hrs |
+| Append items to the DOM | H | 3hrs| hrs | hrs |
+| Create function for random card selection| H | 3hrs| hrs | hrs |
+| Link & display images | H | 3hrs| hrs | hrs |
+| Create search function | H | 2hrs| hrs | hrs |
+| Create 3-card spread | H | 3hrs| hrs | hrs |
+| Display random cards on homepage | H | 4hrs| hrs | hrs |
+| Create reverse card option | H | 3hrs| hrs | hrs |
+| Improve & polish design | H | 5hrs| hrs | hrs |
+| Debugging | H | 4hrs| hrs | hrs |
+| Cleaning code & refactoring| H | 3hrs| hrs | hrs |
+| Testing | H | shrs| hrs | hrs |
+| Total | H | 42hrs| hrs | hrs |
 
 ## Code Snippet
 
