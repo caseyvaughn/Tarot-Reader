@@ -12,19 +12,17 @@ async function fetchRandomCard() {
     const res = await axios.get(url);
     const cardData = res.data;
     console.log(cardData);
-    // showCardData();
+    showCardData(cardData.cards[0]);
   } catch (error) {
     console.log("ERROR!!!!")
   }
 }
-
 fetchRandomCard();
 
-// function showCardData(data) {
-//   console.log(data);
-//   const cardName = document.createElement("h3");
-//   cardName.innerText = `${data.name}`
-//   cardDiv.appendChild(cardName);
-//   console.log(cardName);
-
-// }
+function showCardData(cardObj) {
+  //console.log(data);
+  const cardName = document.createElement("h3");
+  cardName.innerText = cardObj.name;
+  cardDiv.appendChild(cardName);
+  console.log(cardName);
+}
