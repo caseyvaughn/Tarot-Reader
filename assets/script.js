@@ -9,6 +9,7 @@ const cardDiv = document.querySelector("#card-data");
 const drawOneCard = document.querySelector("#random-card")
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
+const imageDiv = document.querySelector("#card-image")
 
 
 
@@ -39,6 +40,24 @@ async function fetchCardData(cardName) {
   } catch (error) {
     console.log("ERROR!!!")
   }
+}
+
+// async function fetchCardImages(cardObj) {
+//   const cardShort =
+//   //how can I access name_short???
+//   const cardImageURL = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
+//   const res = await axios.get(cardImageURL);
+//   const images = res.data.message;
+
+//   displayImages(images);
+// }
+
+function displayImages(images) {
+  images.forEach((image) => {
+    let img = document.createElement("img");
+    img.src = image;
+    imageDiv.appendChild(img);
+  });
 }
 
 function handleSubmit(event) {
@@ -75,7 +94,16 @@ function showCardData(cardObj) {
   cardDesc.innerText = cardObj.desc;
   cardDiv.appendChild(cardDesc);
   //console.log(cardDesc);
+
+  //card images
+  const cardShort = cardObj.name_short;
+  const cardImage = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`;
+  // const res = await axios.get(cardImageURL);
+  // const images = res.data.message;
+  displayImages(cardImage)
+
 }
+
 
 //add event listener for random card buttom
 drawOneCard.addEventListener("click", fetchRandomCard);
