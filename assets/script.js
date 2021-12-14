@@ -81,12 +81,26 @@ function showCardData(cardObj) {
   cardDiv.appendChild(cardType);
   //console.log(cardType);
 
-  //card meaning
-  const cardMeaningUp = document.createElement("h3");
-  cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
-  cardDiv.appendChild(cardMeaningUp);
-  //console.log(cardMeaningUp);
+  //card direction probability logic
+  if (Math.random() < 0.5) {
+    //card meaning up
+    const cardMeaningUp = document.createElement("h3");
+    cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
+    cardDiv.appendChild(cardMeaningUp);
+    console.log(cardMeaningUp);
 
+    imageDiv.classList = "img-norm";
+  } else {
+    //card meaning rev 
+    const cardMeaningRev = document.createElement("h3");
+    cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
+    cardDiv.appendChild(cardMeaningRev);
+    console.log(cardMeaningRev);
+
+    imageDiv.classList = "img-rev";
+    // // imageDiv.classList.add("img-rev");
+
+  }
   //card description
   const cardDesc = document.createElement("h4");
   cardDesc.innerText = cardObj.desc;
@@ -95,6 +109,10 @@ function showCardData(cardObj) {
 }
 
 
+console.log(Math.random());
+console.log(Math.random() < 0.5);
+
+// return Math.random() < 0.5;
 //add event listener for random card buttom
 drawOneCard.addEventListener("click", fetchRandomCard);
 //add event listener for card search 
