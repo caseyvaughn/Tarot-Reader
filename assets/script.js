@@ -38,8 +38,8 @@ async function fetchThreeCards() {
       const cardData = res.data;
       console.log(cardData);
       // cardDiv.innerHTML = "";
-      showCardData(cardData.cards[i]);
-      displayImages(cardData.cards[i])
+      showCardData(cardData.cards[0]);
+      displayImages(cardData.cards[0])
     }
   } catch (error) {
     console.log("THREE CARD ERROR");

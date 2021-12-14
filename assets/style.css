@@ -3,6 +3,7 @@ body {
   font-family: Nunito Sans, sans-serif;
   font-style: normal;
   background-color: #12034F;
+ 
 }
 
 header{
@@ -12,14 +13,18 @@ header{
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
+  background-color: #12034F;
+  padding: 25px 25px 20px 25px;
 }
 
 header > h1 {
-  font-weight: 600;
   font-size: 70px;
   line-height: 87px;
-  font-weight: 600;
+  margin: 20px;
 }
+
+
 
 .card-functions{
   justify-content: space-around;
@@ -52,11 +57,20 @@ button{
   text-align: right;
 }
 
+hr{
+  background: #F1D644;
+  border: 1px solid #F1D644;
+  width: 85%;
+  margin: 20px;
+}
+
+
 .flex-container{
   display: flex;
   flex-direction: row-reverse;
   margin-top: 200px;
   align-items: flex-start;
+  z-index: -1
 }
 
 .flex-child{
