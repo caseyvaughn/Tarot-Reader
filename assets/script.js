@@ -7,6 +7,7 @@ const randomAPI = "https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=1"
 //querySelectors
 const cardDiv = document.querySelector("#card-data");
 const drawOneCard = document.querySelector("#random-card")
+const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image")
@@ -30,6 +31,21 @@ async function fetchRandomCard() {
   }
 }
 
+async function fetchThreeCards() {
+  try {
+    for (let i = 0; i < 3; i++) {
+      const res = await axios.get(randomAPI);
+      const cardData = res.data;
+      console.log(cardData);
+      // cardDiv.innerHTML = "";
+      showCardData(cardData.cards[i]);
+      displayImages(cardData.cards[i])
+    }
+  } catch (error) {
+    console.log("THREE CARD ERROR");
+  }
+}
+
 //search for a card
 async function fetchCardData(cardName) {
   try {
@@ -44,6 +60,8 @@ async function fetchCardData(cardName) {
     console.log("FETCH CARD DATA ERROR!!!")
   }
 }
+
+
 
 function displayImages(cardObj) {
   // const img = document.createElement("img");
@@ -95,11 +113,8 @@ function showCardData(cardObj) {
     const cardMeaningRev = document.createElement("h3");
     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
     cardDiv.appendChild(cardMeaningRev);
-    console.log(cardMeaningRev);
-
+    // console.log(cardMeaningRev);
     imageDiv.classList = "img-rev";
-    // // imageDiv.classList.add("img-rev");
-
   }
   //card description
   const cardDesc = document.createElement("h4");
@@ -109,12 +124,16 @@ function showCardData(cardObj) {
 }
 
 
-console.log(Math.random());
-console.log(Math.random() < 0.5);
+function showClick() {
+  console.log("CLICK!");
+}
 
 // return Math.random() < 0.5;
 //add event listener for random card buttom
 drawOneCard.addEventListener("click", fetchRandomCard);
+drawOneCard.addEventListener("click", showClick);
+//add event listener for three card option
+drawThreeCards.addEventListener("click", fetchThreeCards);
 //add event listener for card search 
 searchForm.addEventListener("submit", handleSubmit);
 
