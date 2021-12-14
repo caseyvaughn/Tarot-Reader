@@ -10,7 +10,8 @@ const drawOneCard = document.querySelector("#random-card")
 const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
-const imageDiv = document.querySelector("#card-image")
+const imageDiv = document.querySelector("#card-image");
+// const image = document.querySelector("img");
 
 
 
@@ -24,6 +25,7 @@ async function fetchRandomCard() {
     console.log(cardData);
     //clear previously displayed card
     cardDiv.innerHTML = "";
+    imageDiv.innerHTML = "";
     showCardData(cardData.cards[0]);
     displayImages(cardData.cards[0])
   } catch (error) {
@@ -49,7 +51,6 @@ async function fetchThreeCards() {
 //search for a card
 async function fetchCardData(cardName) {
   try {
-    // https://cors-anywhere.herokuapp.com/
     const cardSearchAPI = `https://rws-cards-api.herokuapp.com/api/v1/cards/search?q=${cardName}`
     const res = await axios.get(cardSearchAPI);
     const cardData = res.data;
@@ -64,16 +65,11 @@ async function fetchCardData(cardName) {
 
 
 function displayImages(cardObj) {
-  // const img = document.createElement("img");
-  // img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardObj.card_short}.jpg`
-  // imageDiv.appendChild(img);
-
-  imageDiv.innerHTML = "";
+  // imageDiv.innerHTML = "";
   const img = document.createElement("img");
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   imageDiv.appendChild(img);
-
 }
 
 function handleSubmit(event) {
@@ -107,6 +103,7 @@ function showCardData(cardObj) {
     cardDiv.appendChild(cardMeaningUp);
     console.log(cardMeaningUp);
 
+    // image.classList = "img-norm";
     imageDiv.classList = "img-norm";
   } else {
     //card meaning rev 
@@ -114,6 +111,7 @@ function showCardData(cardObj) {
     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
     cardDiv.appendChild(cardMeaningRev);
     // console.log(cardMeaningRev);
+    // image.classList = "img-rev";
     imageDiv.classList = "img-rev";
   }
   //card description
