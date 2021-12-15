@@ -3,7 +3,6 @@ body {
   font-family: Nunito Sans, sans-serif;
   font-style: normal;
   background-color: #12034F;
- 
 }
 
 header{
@@ -19,15 +18,13 @@ header{
 }
 
 header > h1 {
-  font-size: 25px;
+  font-size: 70px;
   line-height: 87px;
   margin: 20px;
 }
 
-
-
 .card-functions{
-  justify-content: space-around;
+  justify-content: space-evenly;
   display: inline-flex;
 }
 
@@ -67,9 +64,24 @@ hr{
 .flex-container{
   display: flex;
   flex-direction: row-reverse;
+  /* flex-wrap: wrap;
+  justify-content: space-between; */
   margin-top: 200px;
   align-items: flex-start;
-  z-index: -1
+  z-index: -1;
+  width: 100%;
+}
+
+.card-container{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+
+.three-card-container{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 29%;
 }
 
 .flex-child{
@@ -77,10 +89,14 @@ hr{
 }
 
 #card-data{
+  display: flex;
+  flex-direction: column;
   font-weight: 600;
   font-size: 24px;
-  line-height: 33px;
-  padding: 40px
+  line-height: 25px;
+  padding: 40px;
+  /* line-height: 10px; */
+  margin: 10px;
 }
 
 #card-image{
@@ -95,6 +111,25 @@ hr{
 }
 
 .img-norm{
-  transform: scaleY(1);
+  /* transform: scaleY(1); */
   /* empty div to display card image normally */
+}
+
+/* .three-cards{
+  display: flex;
+  flex-direction: column;
+
+} */
+h2{
+  text-decoration: underline;
+  text-decoration-color: #BF6F6F;
+}
+h3{
+  font-size: 20px;
+  margin: 10px 0px 10px 0px;
+}
+h4{
+  font-size: 20px;
+  font-style: italic;
+  margin: 10px 0px 10px 0px;
 }

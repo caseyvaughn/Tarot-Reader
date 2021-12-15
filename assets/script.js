@@ -10,10 +10,6 @@ const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
-// const image = document.querySelector("img");
-const randomNum = Math.random();
-console.log(randomNum);
-
 
 //generate 1 random card
 async function fetchRandomCard() {
@@ -24,6 +20,7 @@ async function fetchRandomCard() {
     //clear previously displayed card
     cardDiv.innerHTML = "";
     imageDiv.innerHTML = "";
+
     showCardData(cardData.cards[0]);
     displayImages(cardData.cards[0])
   } catch (error) {
@@ -33,12 +30,28 @@ async function fetchRandomCard() {
 
 async function fetchThreeCards() {
   try {
+    cardDiv.innerHTML = "";
+    imageDiv.innerHTML = "";
     for (let i = 0; i < 3; i++) {
       const res = await axios.get(randomAPI);
       const cardData = res.data;
       console.log(cardData);
+      // cardDiv.innerHTML = "";
+      // imageDiv.innerHTML = "";
+      const threeCards = (cardData + imageDiv);
+      threeCards.classList = "three-card-container";
+      // //trying out fiddle
+      // const card = cardData.cards[0];
+      // card.random = true;
+      // console.log(card.random);
+      // console.log(card.random = true);
+      // showCardData(card);
+      // displayImages(card);
+
       showCardData(cardData.cards[0]);
-      displayImages(cardData.cards[0])
+      displayImages(cardData.cards[0]);
+
+
     }
   } catch (error) {
     console.log("THREE CARD ERROR");
@@ -50,20 +63,10 @@ function displayImages(cardObj) {
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   imageDiv.appendChild(img);
-
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
     img.classList.toggle("img-rev");
   })
-
-  // function reverseImg() {
-  //   console.log("image clicked!");
-  //   // img.classList = "img-norm";
-  //   imageDiv.classList = "img-norm";
-  //   imageDiv.classList.toggle("img-norm");
-
-  // }
-  // img.addEventListener("click", reverseImg)
 }
 
 function showCardData(cardObj) {
