@@ -133,10 +133,12 @@ h4{
 /* media query for iPhone () */
 @media (max-width: 500px){
   body{
-    background-color: pink;
+    background-color: #BF6F6F;
+    color: #12034F;
   }
   header{
     padding: 10px 0px 0px 0px;
+    background-color: #BF6F6F;
   }
   header > h1{
     font-size: 30px;
@@ -155,8 +157,10 @@ h4{
   }
   button{
     padding: 5px;
-    border: 1px solid #BF6F6F;
+    border: 2px solid #12034F;
     font-size: 10px;
+    background: #BF6F6F;
+    color: #12034F;
   }
   #card-search{
     padding: 10px;
@@ -168,10 +172,14 @@ h4{
     border-left-style: hidden;
   }
   ::placeholder{
-    font-size: 10px;
+      color: white;
+      opacity:1; 
+      font-size: 10px;
   }
   hr{
     margin: 9px;
+    color: #12034F;
+    border: 1px solid #12034F;
   }
   .flex-container{
     width: 100%;
