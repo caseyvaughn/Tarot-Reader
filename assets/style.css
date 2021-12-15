@@ -64,29 +64,22 @@ hr{
 .flex-container{
   display: flex;
   flex-direction: row-reverse;
-  /* flex-wrap: wrap;
-  justify-content: space-between; */
   margin-top: 200px;
   align-items: flex-start;
   z-index: -1;
   width: 100%;
 }
 
-.card-container{
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-}
 
-.three-card-container{
+/* .three-card-container{
   display: flex;
   flex-direction: row-reverse;
   width: 29%;
-}
+} */
 
-.flex-child{
+/* .flex-child{
  /* padding: 50px; */
-}
+/* } */ 
 
 #card-data{
   display: flex;
@@ -95,12 +88,13 @@ hr{
   font-size: 24px;
   line-height: 25px;
   padding: 40px;
-  /* line-height: 10px; */
   margin: 10px;
 }
 
 #card-image{
   padding: 50px;
+  max-width: 100%;
+  height: auto;
 }
 
 .img-rev{
@@ -111,7 +105,6 @@ hr{
 }
 
 .img-norm{
-  /* transform: scaleY(1); */
   /* empty div to display card image normally */
 }
 
@@ -133,3 +126,78 @@ h4{
   font-style: italic;
   margin: 10px 0px 10px 0px;
 }
+
+
+
+
+/* media query for iPhone () */
+@media (max-width: 400px){
+  body{
+    background-color: pink;
+  }
+  header{
+    padding: 10px 0px 0px 0px;
+  }
+  header > h1{
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0px;
+    padding: 0px;
+  }
+  .card-functions{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .card-functions > * {
+    margin: 7px;
+  }
+  button{
+    padding: 7px;
+    border: 1px solid #BF6F6F;
+    font-size: 10px;
+  }
+  #card-search{
+    padding: 10px;
+    font-size: 10px;
+    font-style: italic;
+    border-bottom: 1px solid #BF6F6F;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+  }
+  ::placeholder{
+    font-size: 10px;
+  }
+  hr{
+    margin: 9px;
+  }
+  .flex-container{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 250px;
+    justify-content: center;
+  }
+  #card-image{
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+    transform: scale(0.7);
+}
+#card-data{
+  /* display: flex;
+  flex-direction: column;
+  font-weight: 600; */
+  font-size: 20px;
+ 
+  padding: 10px;
+  margin: 10px;
+}
+}
+
+
+
