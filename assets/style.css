@@ -95,5 +95,6 @@ hr{
 }
 
 .img-norm{
+  transform: scaleY(1);
   /* empty div to display card image normally */
 }

@@ -50,6 +50,20 @@ function displayImages(cardObj) {
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   imageDiv.appendChild(img);
+
+  //add event listener to reverse image with click
+  img.addEventListener("click", function () {
+    img.classList.toggle("img-rev");
+  })
+
+  // function reverseImg() {
+  //   console.log("image clicked!");
+  //   // img.classList = "img-norm";
+  //   imageDiv.classList = "img-norm";
+  //   imageDiv.classList.toggle("img-norm");
+
+  // }
+  // img.addEventListener("click", reverseImg)
 }
 
 function showCardData(cardObj) {
@@ -147,6 +161,8 @@ drawOneCard.addEventListener("click", fetchRandomCard);
 drawThreeCards.addEventListener("click", fetchThreeCards);
 //add event listener for card search 
 searchForm.addEventListener("submit", handleSubmit);
+//event listener to reverse image when clicked
+
 
 
 //old showcarddata function
