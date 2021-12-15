@@ -10,6 +10,7 @@ const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
+// const flexCont = document.querySelector("#flex-container");
 
 //generate 1 random card
 async function fetchRandomCard() {
