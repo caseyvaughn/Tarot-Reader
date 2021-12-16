@@ -70,16 +70,12 @@ hr{
   /* width: 100%; */
 }
 
-
-/* .three-card-container{
+/* .item{
   display: flex;
-  flex-direction: row-reverse;
-  width: 29%;
+  flex: 0 32%;
+  height: 100px;
+  margin-bottom: 2%;
 } */
-
-/* .flex-child{
- /* padding: 50px; */
-/* } */ 
 
 #card-data{
   display: flex;
@@ -92,9 +88,14 @@ hr{
 }
 
 #card-image{
-  padding: 50px;
+  display: flex;
+  padding: 30px;
   max-width: 100%;
   height: auto;
+}
+
+img{
+  padding: 50px;
 }
 
 .img-rev{
@@ -111,11 +112,7 @@ hr{
   /* empty div to display card image normally */
 }
 
-/* .three-cards{
-  display: flex;
-  flex-direction: column;
 
-} */
 h2{
   text-decoration: underline;
   text-decoration-color: #BF6F6F;

@@ -53,7 +53,14 @@ async function fetchThreeCards() {
       //determine card direction
       const cardObj = cardData.cards[0];
       cardObj.flipped = (Math.random() < .5) ///returns a boolean
-      console.log(cardObj.flipped);
+
+      console.log(typeof (cardObj));
+      // //try to add class name to cards
+      // cardObj.classList =`${i}`
+      // console.log(cardObj.outerHTML);
+      // const cardShort = cardObj.name_short;
+      // cardObj.classList.add(`${cardShort}`);
+      // // console.log(cardObj.outerHTML);
 
       showCardData(cardData.cards[0]);
       displayImages(cardData.cards[0]);
