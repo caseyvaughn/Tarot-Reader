@@ -77,6 +77,10 @@ hr{
   margin-bottom: 2%;
 } */
 
+.data-container{
+  display: flex;
+  flex-direction: row;
+}
 #card-data{
   display: flex;
   flex-direction: column;
@@ -142,7 +146,7 @@ h4{
   }
   header > h1{
     font-size: 30px;
-    line-height: 40px;
+    line-height: 55px;
     margin: 0px;
     padding: 0px;
   }
@@ -158,13 +162,13 @@ h4{
   button{
     padding: 5px;
     border: 2px solid #12034F;
-    font-size: 10px;
+    font-size: 15px;
     background: #BF6F6F;
     color: #12034F;
   }
   #card-search{
     padding: 10px;
-    font-size: 10px;
+    font-size: 15px;
     font-style: italic;
     border-bottom: 1px solid #BF6F6F;
     border-top-style: hidden;
@@ -174,7 +178,7 @@ h4{
   ::placeholder{
       color: white;
       opacity:1; 
-      font-size: 10px;
+      font-size: 15px;
   }
   hr{
     margin: 9px;
