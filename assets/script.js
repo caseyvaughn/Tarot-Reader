@@ -10,28 +10,31 @@ const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
-// const flexCont = document.querySelector("#flex-container");
 
-const starBtn = document.querySelector("add-star");
-const viewStarBtn = document.querySelector("view-starred");
+//extra features POST MVP
+// const starBtn = document.querySelector("add-star");
+// const viewStarBtn = document.querySelector("view-starred");
 // starBtn.innerHTML = '<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/512px-Golden_star.svg.png">';
 
 //generate 1 random card
 async function fetchRandomCard() {
   try {
+    //fetch data from API
     const res = await axios.get(randomAPI);
     const cardData = res.data;
     console.log(cardData);
     //clear previously displayed card
     cardDiv.innerHTML = "";
     imageDiv.innerHTML = "";
-
+    //determine if card is normal or flipped 
     const cardObj = cardData.cards[0];
     cardObj.flipped = (Math.random() < .5) ///returns a boolean
     console.log(cardObj.flipped);
 
-    showCardData(cardData.cards[0]); //can change this to (cardObj)
-    displayImages(cardData.cards[0]);
+    showCardData(cardObj);
+    displayImages(cardObj);
+    // showCardData(cardData.cards[0]); //can change this to (cardObj)
+    // displayImages(cardData.cards[0]);
   } catch (error) {
     console.log("ERROR!!!!")
   }
@@ -39,6 +42,7 @@ async function fetchRandomCard() {
 
 async function fetchThreeCards() {
   try {
+    //clear previously displayed cards
     cardDiv.innerHTML = "";
     imageDiv.innerHTML = "";
     for (let i = 0; i < 3; i++) {
@@ -46,7 +50,7 @@ async function fetchThreeCards() {
       const cardData = res.data;
       console.log(cardData);
 
-      //trial
+      //determine card direction
       const cardObj = cardData.cards[0];
       cardObj.flipped = (Math.random() < .5) ///returns a boolean
       console.log(cardObj.flipped);
@@ -64,13 +68,12 @@ function displayImages(cardObj) {
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   img.alt = `${cardObj.name} card`;
-  //card direction logic
+  //display card's direction 
   if (!cardObj.flipped) {
     img.classList = "img-norm";
   } else {
     img.classList = "img-rev";
   }
-
   imageDiv.appendChild(img);
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
@@ -83,13 +86,11 @@ function showCardData(cardObj) {
   const cardName = document.createElement("h2");
   cardName.innerText = cardObj.name;
   cardDiv.appendChild(cardName);
-  //console.log(cardName);
 
   //card type
   const cardType = document.createElement("h3");
   cardType.innerText = `Type: ${cardObj.type}`;
   cardDiv.appendChild(cardType);
-  //console.log(cardType);
 
   //card direction probability logic
   if (!cardObj.flipped) {
@@ -98,13 +99,11 @@ function showCardData(cardObj) {
     cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
     cardDiv.appendChild(cardMeaningUp);
     console.log(cardMeaningUp);
-    // imageDiv.classList = "img-norm";
   } else {
     //card meaning rev 
     const cardMeaningRev = document.createElement("h3");
     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
     cardDiv.appendChild(cardMeaningRev);
-    // imageDiv.classList = "img-rev";
   }
   //card description
   const cardDesc = document.createElement("h4");
@@ -140,7 +139,7 @@ function showSearchedCardData(cardObj) {
   cardDiv.appendChild(cardDesc);
 }
 
-//fetch dara for card search function 
+//fetch data for card search function 
 async function fetchCardData(cardName) {
   try {
     const cardSearchAPI = `https://rws-cards-api.herokuapp.com/api/v1/cards/search?q=${cardName}`
@@ -167,10 +166,6 @@ function handleSubmit(event) {
 }
 
 
-// function starCard(cardObj) {
-
-
-// }
 //EVENT LISTENERS//
 //add event listener for random card buttom
 drawOneCard.addEventListener("click", fetchRandomCard);
