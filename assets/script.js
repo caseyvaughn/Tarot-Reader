@@ -12,6 +12,10 @@ const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
 // const flexCont = document.querySelector("#flex-container");
 
+const starBtn = document.querySelector("add-star");
+const viewStarBtn = document.querySelector("view-starred");
+// starBtn.innerHTML = '<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/512px-Golden_star.svg.png">';
+
 //generate 1 random card
 async function fetchRandomCard() {
   try {
@@ -22,8 +26,12 @@ async function fetchRandomCard() {
     cardDiv.innerHTML = "";
     imageDiv.innerHTML = "";
 
-    showCardData(cardData.cards[0]);
-    displayImages(cardData.cards[0])
+    const cardObj = cardData.cards[0];
+    cardObj.flipped = (Math.random() < .5) ///returns a boolean
+    console.log(cardObj.flipped);
+
+    showCardData(cardData.cards[0]); //can change this to (cardObj)
+    displayImages(cardData.cards[0]);
   } catch (error) {
     console.log("ERROR!!!!")
   }
@@ -37,22 +45,14 @@ async function fetchThreeCards() {
       const res = await axios.get(randomAPI);
       const cardData = res.data;
       console.log(cardData);
-      // cardDiv.innerHTML = "";
-      // imageDiv.innerHTML = "";
-      const threeCards = (cardData + imageDiv);
-      threeCards.classList = "three-card-container";
-      // //trying out fiddle
-      // const card = cardData.cards[0];
-      // card.random = true;
-      // console.log(card.random);
-      // console.log(card.random = true);
-      // showCardData(card);
-      // displayImages(card);
+
+      //trial
+      const cardObj = cardData.cards[0];
+      cardObj.flipped = (Math.random() < .5) ///returns a boolean
+      console.log(cardObj.flipped);
 
       showCardData(cardData.cards[0]);
       displayImages(cardData.cards[0]);
-
-
     }
   } catch (error) {
     console.log("THREE CARD ERROR");
@@ -64,6 +64,13 @@ function displayImages(cardObj) {
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   img.alt = `${cardObj.name} card`;
+  //card direction logic
+  if (!cardObj.flipped) {
+    img.classList = "img-norm";
+  } else {
+    img.classList = "img-rev";
+  }
+
   imageDiv.appendChild(img);
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
@@ -85,19 +92,19 @@ function showCardData(cardObj) {
   //console.log(cardType);
 
   //card direction probability logic
-  if (Math.random() < .5) {
+  if (!cardObj.flipped) {
     //card meaning up
     const cardMeaningUp = document.createElement("h3");
     cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
     cardDiv.appendChild(cardMeaningUp);
     console.log(cardMeaningUp);
-    imageDiv.classList = "img-norm";
+    // imageDiv.classList = "img-norm";
   } else {
     //card meaning rev 
     const cardMeaningRev = document.createElement("h3");
     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
     cardDiv.appendChild(cardMeaningRev);
-    imageDiv.classList = "img-rev";
+    // imageDiv.classList = "img-rev";
   }
   //card description
   const cardDesc = document.createElement("h4");
@@ -159,6 +166,11 @@ function handleSubmit(event) {
   fetchCardData(inputValue);
 }
 
+
+// function starCard(cardObj) {
+
+
+// }
 //EVENT LISTENERS//
 //add event listener for random card buttom
 drawOneCard.addEventListener("click", fetchRandomCard);
@@ -166,7 +178,11 @@ drawOneCard.addEventListener("click", fetchRandomCard);
 drawThreeCards.addEventListener("click", fetchThreeCards);
 //add event listener for card search 
 searchForm.addEventListener("submit", handleSubmit);
-//event listener to reverse image when clicked
+//event listener to star a card
+// starBtn.addEventListener("click", starCard);
+// //event listener to view starred cards
+// viewStarBtn.addEventListener("click", viewStars);
+
 
 
 
