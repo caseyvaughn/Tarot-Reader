@@ -12,10 +12,6 @@ const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
 const flexCont = document.querySelector(".flex-container");
 
-//extra features POST MVP
-// const starBtn = document.querySelector("add-star");
-// const viewStarBtn = document.querySelector("view-starred");
-// starBtn.innerHTML = '<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/512px-Golden_star.svg.png">';
 
 //generate 1 random card
 async function fetchRandomCard() {
@@ -30,16 +26,12 @@ async function fetchRandomCard() {
     //determine if card is normal or flipped 
     const cardObj = cardData.cards[0];
     cardObj.flipped = (Math.random() < .5) ///returns a boolean
-    console.log(cardObj.flipped);
 
     showCardData(cardObj);
     displayImages(cardObj);
 
-    //apply class to flex container - conditional only for single card draw!!
+    //apply class to flex container - conditional only for single card draw
     flexCont.classList.add("one-card-display");
-
-    // showCardData(cardData.cards[0]); //can change this to (cardObj)
-    // displayImages(cardData.cards[0]);
   } catch (error) {
     console.log("ERROR!!!!")
   }
@@ -54,28 +46,17 @@ async function fetchThreeCards() {
       const res = await axios.get(randomAPI);
       const cardData = res.data;
       console.log(cardData);
-
       //determine card direction
       const cardObj = cardData.cards[0];
       cardObj.flipped = (Math.random() < .5) ///returns a boolean
 
       console.log(typeof (cardObj));
-      // //try to add class name to cards
-      // cardObj.classList =`${i}`
-      // console.log(cardObj.outerHTML);
-      // const cardShort = cardObj.name_short;
-      // cardObj.classList.add(`${cardShort}`);
-      // // console.log(cardObj.outerHTML);
 
       showCardData(cardData.cards[0], true);
       displayImages(cardData.cards[0]);
 
       //remove one-card-display class !
       flexCont.classList.remove("one-card-display");
-      //add class for 29% width to evenly display columns
-
-
-
     }
   } catch (error) {
     console.log("THREE CARD ERROR");
@@ -101,11 +82,9 @@ function displayImages(cardObj, isMultiCard) {
   singleImageDiv.appendChild(img);
 
   //handle isMultiCard to remove 29% width for one card draw image
-  //handle isMultiCard
   if (isMultiCard) {
     singleImageDiv.classList.add("one-third-width");
   }
-
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
     img.classList.toggle("img-rev");
@@ -113,7 +92,6 @@ function displayImages(cardObj, isMultiCard) {
 }
 
 function showCardData(cardObj, isMultiCard) {
-
   //create a div to store each card's data
   const singleCardDiv = document.createElement("div");
   cardDiv.appendChild(singleCardDiv);
@@ -123,7 +101,6 @@ function showCardData(cardObj, isMultiCard) {
   if (isMultiCard) {
     singleCardDiv.classList.add("one-third-width");
   }
-
   //card name
   const cardName = document.createElement("h2");
   cardName.innerText = cardObj.name;
@@ -215,61 +192,17 @@ drawOneCard.addEventListener("click", fetchRandomCard);
 drawThreeCards.addEventListener("click", fetchThreeCards);
 //add event listener for card search 
 searchForm.addEventListener("submit", handleSubmit);
-//event listener to star a card
-// starBtn.addEventListener("click", starCard);
-// //event listener to view starred cards
-// viewStarBtn.addEventListener("click", viewStars);
+
 
 //find what is causing overlay!!!
 
-var docWidth = document.documentElement.offsetWidth;
+// var docWidth = document.documentElement.offsetWidth;
 
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function (el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
-
-
-//old showcarddata function
-// function showCardData(cardObj) {
-//   //card name
-//   const cardName = document.createElement("h2");
-//   cardName.innerText = cardObj.name;
-//   cardDiv.appendChild(cardName);
-//   //console.log(cardName);
-
-//   //card type
-//   const cardType = document.createElement("h3");
-//   cardType.innerText = `Type: ${cardObj.type}`;
-//   cardDiv.appendChild(cardType);
-//   //console.log(cardType);
-
-//   //card direction probability logic
-//   if (Math.random() < 0.5) {
-//     //card meaning up
-//     const cardMeaningUp = document.createElement("h3");
-//     cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
-//     cardDiv.appendChild(cardMeaningUp);
-//     console.log(cardMeaningUp);
-
-//     // image.classList = "img-norm";
-//     imageDiv.classList = "img-norm";
-//   } else {
-//     //card meaning rev 
-//     const cardMeaningRev = document.createElement("h3");
-//     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
-//     cardDiv.appendChild(cardMeaningRev);
-//     // console.log(cardMeaningRev);
-//     // image.classList = "img-rev";
-//     imageDiv.classList = "img-rev";
+// [].forEach.call(
+//   document.querySelectorAll('*'),
+//   function (el) {
+//     if (el.offsetWidth > docWidth) {
+//       console.log(el);
+//     }
 //   }
-//   //card description
-//   const cardDesc = document.createElement("h4");
-//   cardDesc.innerText = cardObj.desc;
-//   cardDiv.appendChild(cardDesc);
-//   //console.log(cardDesc);
-// }
+// );

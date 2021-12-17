@@ -94,17 +94,15 @@ hr{
 
 .single-image-div{
   display: flex;
-  /* min-width: 70%; */
-  /* width: 29%;  */
 }
 
 #card-image{
   display: flex;
   padding: 30px;
+  justify-content: space-between;
   /* max-width: 100%; */
   /* width: 100%; */
   /* height: auto; */
-  justify-content: space-between;
 }
 
 img{
@@ -121,7 +119,6 @@ img{
   /* empty div to display card image normally */
 }
 
-
 h2{
   text-decoration: underline;
   text-decoration-color: #BF6F6F;
@@ -135,9 +132,6 @@ h4{
   font-style: italic;
   margin: 10px 0px 10px 0px;
 }
-
-
-
 
 /* media query for iPhone () */
 @media (max-width: 500px){
@@ -204,17 +198,22 @@ h4{
     margin: 0 auto;
     width: 100%;
   }
+  .one-third-width {
+    width: 100%;
+}
   #card-image{
     padding: 10px;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
+    flex-direction: column; 
 }
 #card-data{
   padding: 10px;
   margin: 10px;
   margin: 0 auto;
   width: 100%;
+  flex-direction: column;
 }
 .flex-child{
   width: 100%;
