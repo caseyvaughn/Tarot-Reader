@@ -82,7 +82,7 @@ async function fetchThreeCards() {
   }
 }
 
-function displayImages(cardObj) {
+function displayImages(cardObj, isMultiCard) {
   const img = document.createElement("img");
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
@@ -99,6 +99,13 @@ function displayImages(cardObj) {
   singleImageDiv.classList = "single-image-div";
 
   singleImageDiv.appendChild(img);
+
+  //handle isMultiCard to remove 29% width for one card draw image
+  //handle isMultiCard
+  if (isMultiCard) {
+    singleImageDiv.classList.add("one-third-width");
+  }
+
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
     img.classList.toggle("img-rev");

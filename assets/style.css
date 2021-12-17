@@ -94,22 +94,23 @@ hr{
 
 .single-image-div{
   display: flex;
-  width: 29%;
+  /* min-width: 70%; */
+  /* width: 29%;  */
 }
 
 #card-image{
   display: flex;
   padding: 30px;
   /* max-width: 100%; */
-  width: 100%;
+  /* width: 100%; */
   /* height: auto; */
   justify-content: space-between;
 }
 
 img{
   padding: 50px;
-  max-width: 100%;
-  height: auto;
+  /* max-width: 100%;
+  height: auto; */
 }
 
 .img-rev{
