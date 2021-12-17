@@ -112,7 +112,7 @@ img{
 }
 
 .img-rev{
-  transform: rotateX(180deg);
+  transform: rotateX(180deg) rotateY(180deg);
 }
 
 .img-norm{
