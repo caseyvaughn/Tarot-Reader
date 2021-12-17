@@ -92,6 +92,11 @@ hr{
   justify-content: space-between;
 }
 
+.card-data-search{
+  display: flex;
+  flex-direction: column;
+}
+
 .single-image-div{
   display: flex;
 }

@@ -132,6 +132,11 @@ function showCardData(cardObj, isMultiCard) {
 
 
 function showSearchedCardData(cardObj) {
+  //create a div to store each card's data
+  const singleCardDiv = document.createElement("div");
+  cardDiv.appendChild(singleCardDiv);
+  singleCardDiv.classList = "single-card-div";
+
   //card name
   const cardName = document.createElement("h2");
   cardName.innerText = cardObj.name;
@@ -167,7 +172,11 @@ async function fetchCardData(cardName) {
     cardDiv.innerHTML = "";
     imageDiv.innerHTML = "";
     showSearchedCardData(cardData.cards[0]);
-    displayImages(cardData.cards[0])
+    displayImages(cardData.cards[0]);
+
+    //apply class to flex container - conditional only for single card draw
+    flexCont.classList.add("one-card-display");
+
   } catch (error) {
     console.log("FETCH CARD DATA ERROR!!!")
   }
