@@ -93,7 +93,12 @@ https://whimsical.com/project-1-priority-matrix-XzQbG9vzYfuypin4mFwvk1
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+Use this section to include a brief code snippet of functionality that you are proud of and a brief description. 
+
+- Interpolate API's name_short key into image source URL
+- If/else logic with cardObj.flipped to determine card's direction (normal or reverse);
+- Pass isMultiCard agrument to add a class for 3-card spread for CSS styling
+- Add an event listener to each image to allow user to reverse image with click 
 
 ```
 function displayImages(cardObj, isMultiCard) {
@@ -101,12 +106,14 @@ function displayImages(cardObj, isMultiCard) {
   const cardShort = cardObj.name_short;
   img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
   img.alt = `${cardObj.name} card`;
+  
   //display card's direction 
   if (!cardObj.flipped) {
     img.classList = "img-norm";
   } else {
     img.classList = "img-rev";
   }
+  
   //create div to hold a single card image
   const singleImageDiv = document.createElement("div");
   imageDiv.appendChild(singleImageDiv);
