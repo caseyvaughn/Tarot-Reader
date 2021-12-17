@@ -40,8 +40,6 @@ Image source site: https://www.sacred-texts.com/tarot/pkt/index.htm
 Link to homepage, 1-card spread, and 3-card spread displays: 
 https://www.figma.com/file/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-id=5%3A119
 
-![sample site homepage] https://www.figma.com/proto/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-id=5%3A119&scaling=min-zoom&page-id=5%3A118]
-
 ### MVP/PostMVP
 
 #### MVP 
@@ -57,8 +55,6 @@ https://www.figma.com/file/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-
 - Display card image (images not included in API)
 - Include an option for a 3 card spread
 - Include readings for the card's reverse
-- Display random selection of card images on homepage
-
 
 ## Project Schedule
   
@@ -81,28 +77,50 @@ https://whimsical.com/project-1-priority-matrix-XzQbG9vzYfuypin4mFwvk1
 ## Timeframes
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Set up basic HTML, CSS, & JS | H | 4hrs|  hrs |  hrs |
-| Setup API | H | 3hrs| hrs | hrs |
-| Append items to the DOM | H | 3hrs| hrs | hrs |
-| Create function for random card selection| H | 3hrs| hrs | hrs |
-| Link & display images | H | 3hrs| hrs | hrs |
-| Create search function | H | 2hrs| hrs | hrs |
-| Create 3-card spread | H | 3hrs| hrs | hrs |
-| Display random cards on homepage | H | 4hrs| hrs | hrs |
-| Create reverse card option | H | 3hrs| hrs | hrs |
-| Improve & polish design | H | 5hrs| hrs | hrs |
-| Debugging | H | 4hrs| hrs | hrs |
-| Cleaning code & refactoring| H | 3hrs| hrs | hrs |
-| Testing | H | shrs| hrs | hrs |
-| Total | H | 42hrs| hrs | hrs |
+| Set up basic HTML, CSS, & JS | H | 4hrs|  4hrs |  hrs |
+| Setup API | H | 3hrs| 3hrs | hrs |
+| Append items to the DOM | H | 3hrs| 3hrs | hrs |
+| Create function for random card selection| H | 3hrs| 2hrs | hrs |
+| Link & display images | H | 3hrs| 3hrs | hrs |
+| Create search function | H | 2hrs| 1.5hrs | hrs |
+| Create 3-card spread | H | 3hrs| 5hrs | hrs |
+| Create reverse card option | H | 3hrs| 4hrs | hrs |
+| Improve & polish design | H | 5hrs| 7hrs | hrs |
+| Debugging | H | 4hrs| 5hrs | hrs |
+| Cleaning code & refactoring| H | 3hrs| 3hrs | hrs |
+| Testing | H | 2hrs| hrs | 2hrs |
+| Total | H | 38hrs| hrs | 42hrs |
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+function displayImages(cardObj, isMultiCard) {
+  const img = document.createElement("img");
+  const cardShort = cardObj.name_short;
+  img.src = `https://www.sacred-texts.com/tarot/pkt/img/${cardShort}.jpg`
+  img.alt = `${cardObj.name} card`;
+  //display card's direction 
+  if (!cardObj.flipped) {
+    img.classList = "img-norm";
+  } else {
+    img.classList = "img-rev";
+  }
+  //create div to hold a single card image
+  const singleImageDiv = document.createElement("div");
+  imageDiv.appendChild(singleImageDiv);
+  singleImageDiv.classList = "single-image-div";
+  singleImageDiv.appendChild(img);
+
+  //handle isMultiCard to remove 29% width for one card draw image
+  if (isMultiCard) {
+    singleImageDiv.classList.add("one-third-width");
+  }
+  //add event listener to reverse image with click
+  img.addEventListener("click", function () {
+    img.classList.toggle("img-rev");
+  })
 }
 ```
 
