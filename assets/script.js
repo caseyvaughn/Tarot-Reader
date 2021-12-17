@@ -213,7 +213,18 @@ searchForm.addEventListener("submit", handleSubmit);
 // //event listener to view starred cards
 // viewStarBtn.addEventListener("click", viewStars);
 
+//find what is causing overlay!!!
 
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function (el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
 
 
 //old showcarddata function

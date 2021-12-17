@@ -67,7 +67,6 @@ hr{
   margin-top: 200px;
   align-items: flex-start;
   z-index: -1;
-  /* width: 100%; */
 }
 .one-card-display{
   flex-direction: row-reverse;
@@ -76,7 +75,6 @@ hr{
 .single-card-div{
   display: flex;
   flex-direction: column;
-  /* width: 29%; */
 }
 
 .one-third-width{
@@ -89,7 +87,7 @@ hr{
   font-weight: 600;
   font-size: 24px;
   line-height: 25px;
-  padding: 40px;
+  padding: 30px;
   margin: 10px;
   justify-content: space-between;
 }
@@ -110,6 +108,8 @@ hr{
 
 img{
   padding: 50px;
+  max-width: 100%;
+  height: auto;
 }
 
 .img-rev{
@@ -189,28 +189,34 @@ h4{
     color: #12034F;
     border: 1px solid #12034F;
   }
+  .flex-container{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 150px;
+  }
   img{
     justify-content: center;
-    transform: scale(0.85);
+    transform: scale(0.8);
     padding: 15px 10px 10px 10px;
   }
   .single-image-div{
     margin: 0 auto;
     width: 100%;
   }
-  .flex-container{
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: 150px;
-  }
   #card-image{
     padding: 10px;
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
 }
 #card-data{
   padding: 10px;
   margin: 10px;
+  margin: 0 auto;
+  width: 100%;
+}
+.flex-child{
+  width: 100%;
 }
 h2{
   font-size: 30px;
