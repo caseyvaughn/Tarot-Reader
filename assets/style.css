@@ -102,9 +102,9 @@ hr{
 #card-image{
   display: flex;
   padding: 30px;
-  max-width: 100%;
+  /* max-width: 100%; */
   width: 100%;
-  height: auto;
+  /* height: auto; */
   justify-content: space-between;
 }
 
@@ -113,15 +113,7 @@ img{
 }
 
 .img-rev{
-  /* transform: scaleX(-1); */
-  /* transform: scaleY(-1); */
   transform: rotateX(180deg);
-  /* transform: scaleY(-1); */
-  /* transform: rotateY(180deg); */
-  /* transform: scaleY(-1); */
-  /* -moz-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);  */
 }
 
 .img-norm{
@@ -199,6 +191,12 @@ h4{
   }
   img{
     justify-content: center;
+    transform: scale(0.85);
+    padding: 15px 10px 10px 10px;
+  }
+  .single-image-div{
+    margin: 0 auto;
+    width: 100%;
   }
   .flex-container{
     display: flex;
@@ -209,7 +207,6 @@ h4{
     padding: 10px;
     max-width: 100%;
     height: auto;
-    transform: scale(0.7);
 }
 #card-data{
   padding: 10px;
