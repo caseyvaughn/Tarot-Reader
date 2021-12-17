@@ -10,6 +10,7 @@ const drawThreeCards = document.querySelector("#three-cards");
 const cardSearch = document.querySelector("#card-search")
 const searchForm = document.querySelector("#card-form")
 const imageDiv = document.querySelector("#card-image");
+const flexCont = document.querySelector(".flex-container");
 
 //extra features POST MVP
 // const starBtn = document.querySelector("add-star");
@@ -33,6 +34,10 @@ async function fetchRandomCard() {
 
     showCardData(cardObj);
     displayImages(cardObj);
+
+    //apply class to flex container - conditional only for single card draw!!
+    flexCont.classList.add("one-card-display");
+
     // showCardData(cardData.cards[0]); //can change this to (cardObj)
     // displayImages(cardData.cards[0]);
   } catch (error) {
@@ -62,8 +67,15 @@ async function fetchThreeCards() {
       // cardObj.classList.add(`${cardShort}`);
       // // console.log(cardObj.outerHTML);
 
-      showCardData(cardData.cards[0]);
+      showCardData(cardData.cards[0], true);
       displayImages(cardData.cards[0]);
+
+      //remove one-card-display class !
+      flexCont.classList.remove("one-card-display");
+      //add class for 29% width to evenly display columns
+
+
+
     }
   } catch (error) {
     console.log("THREE CARD ERROR");
@@ -81,41 +93,57 @@ function displayImages(cardObj) {
   } else {
     img.classList = "img-rev";
   }
-  imageDiv.appendChild(img);
+  //create div to hold a single card image
+  const singleImageDiv = document.createElement("div");
+  imageDiv.appendChild(singleImageDiv);
+  singleImageDiv.classList = "single-image-div";
+
+  singleImageDiv.appendChild(img);
   //add event listener to reverse image with click
   img.addEventListener("click", function () {
     img.classList.toggle("img-rev");
   })
 }
 
-function showCardData(cardObj) {
+function showCardData(cardObj, isMultiCard) {
+
+  //create a div to store each card's data
+  const singleCardDiv = document.createElement("div");
+  cardDiv.appendChild(singleCardDiv);
+  singleCardDiv.classList = "single-card-div";
+
+  //handle isMultiCard
+  if (isMultiCard) {
+    singleCardDiv.classList.add("one-third-width");
+  }
+
   //card name
   const cardName = document.createElement("h2");
   cardName.innerText = cardObj.name;
-  cardDiv.appendChild(cardName);
+  singleCardDiv.appendChild(cardName);
 
   //card type
   const cardType = document.createElement("h3");
   cardType.innerText = `Type: ${cardObj.type}`;
-  cardDiv.appendChild(cardType);
+  singleCardDiv.appendChild(cardType);
 
   //card direction probability logic
   if (!cardObj.flipped) {
     //card meaning up
     const cardMeaningUp = document.createElement("h3");
     cardMeaningUp.innerText = `Meaning (Up): ${cardObj.meaning_up}`;
-    cardDiv.appendChild(cardMeaningUp);
+    singleCardDiv.appendChild(cardMeaningUp);
     console.log(cardMeaningUp);
   } else {
     //card meaning rev 
     const cardMeaningRev = document.createElement("h3");
     cardMeaningRev.innerText = `Meaning (Reverse): ${cardObj.meaning_rev}`
-    cardDiv.appendChild(cardMeaningRev);
+    singleCardDiv.appendChild(cardMeaningRev);
   }
   //card description
   const cardDesc = document.createElement("h4");
   cardDesc.innerText = cardObj.desc;
-  cardDiv.appendChild(cardDesc);
+  singleCardDiv.appendChild(cardDesc);
 }
 
 

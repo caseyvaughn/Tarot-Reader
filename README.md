@@ -65,11 +65,11 @@ https://www.figma.com/file/p3TnZBOBQg2wG3bbOHJBX4/Project-1--Tarot-Reader!?node-
 |  Day | Deliverable | Status
 |---|---| ---|
 |Dec 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|Dec 13| Project Approval | Incomplete
-|Dec 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Dec 14| Pseudocode / actual code | Incomplete
-|Dec 15| Initial Clickable Model  | Incomplete
-|Dec 16| MVP | Incomplete
+|Dec 13| Project Approval | Complete
+|Dec 13| Core Application Structure (HTML, CSS, etc.) | Complete
+|Dec 14| Pseudocode / actual code | Complete
+|Dec 15| Initial Clickable Model  | Complete
+|Dec 16| MVP | Complete
 |Dec 17| Presentations | Incomplete
 
 
