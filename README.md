@@ -10,8 +10,8 @@ Deployed site: https://caseyvaughn.github.io/Tarot-Reader/
 - HTML
 
 # API
-Tarot Card API: https://app.swaggerhub.com/apis/ekswagger/rws-tarot_card_api/1.0.0#/Get%20cards
-Note: The Tarot Card API does not include iamges for the cards. Card images were sourced from this site: https://www.sacred-texts.com/tarot/pkt/index.htm
+- Tarot Card API: https://app.swaggerhub.com/apis/ekswagger/rws-tarot_card_api/1.0.0#/Get%20cards
+- Note: The Tarot Card API does not include iamges for the cards. Card images were sourced from this site: https://www.sacred-texts.com/tarot/pkt/index.htm
 
 ## User Experience
 The user can select a 1-card or 3-card tarot spread, or can search for a specific card they would like to learn about. 
